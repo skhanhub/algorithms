@@ -1,22 +1,23 @@
-const islandCount = (grid) => {
+const minimumIsland = (grid) => {
+  let minIsland = Infinity;
   const visited = new Set();
-  let count = 0;
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[r].length; c++) {
-      count += explore(grid, r, c, visited);
+      minIsland = Math.min(explore(grid, r, c, visited), minIsland);
     }
   }
-  return count;
+  return minIsland;
 };
 
 const explore = (grid, r, c, visited) => {
-  let newIsland = 0;
   const direction = [
     [1, 0],
     [-1, 0],
     [0, 1],
     [0, -1],
   ];
+  let size;
+
   const queue = [[r, c]];
   while (queue.length > 0) {
     const current = queue.shift();
@@ -25,7 +26,7 @@ const explore = (grid, r, c, visited) => {
     if (visited.has(position)) continue;
     if (grid[current[0]][current[1]] === "W") continue;
     visited.add(position);
-    newIsland = 1;
+    size = size ? size + 1 : 1;
     for (let delta of direction) {
       const neighbourR = current[0] + delta[0];
       const neighbourC = current[1] + delta[1];
@@ -36,5 +37,5 @@ const explore = (grid, r, c, visited) => {
       queue.push([neighbourR, neighbourC]);
     }
   }
-  return newIsland;
+  return size || Infinity;
 };
