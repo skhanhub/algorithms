@@ -8,7 +8,7 @@
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
     "coverage": "jest --coverage",
-    "console": "ts-node ./random/isPrime/isPrime.ts"
+    "console": "ts-node ./array/nonRepeating/nonRepeating.ts"
   },
   "author": "",
   "license": "ISC",
