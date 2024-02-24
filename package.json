@@ -8,7 +8,7 @@
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
     "coverage": "jest --coverage",
-    "console": "ts-node ./array/nonRepeating/nonRepeating.ts"
+    "console": "ts-node ./twoDimensionalArray/mineSweeper/mineSweeper.ts"
   },
   "author": "",
   "license": "ISC",
